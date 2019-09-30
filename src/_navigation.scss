@@ -1,21 +1,28 @@
-@import "variables";
+@import "variables", "mixins";
 
 nav{
-    width:540px;
-    height:$height;
-    float:left;
-    text-align:right;
+    @include nav(540px, $height, left, right);
+    @include adjustWidth(959px)  {@include nav(inherit, 50px, none, center);}
+    @include adjustWidth(459px) {margin-bottom:40px !important;}
+
     ul{
         list-style-type:none;
         margin-top:95px;
+        @include adjustWidth(959px) {margin-top:0;}
         li{
             display:inline;
             font-size:0.8em;
             margin-right:10px;
+            @include adjustWidth(959px) {font-size:1em;margin:0 10px;}
+            @include adjustWidth(767px)   {font-size:0.8em;margin:0 5px;}
+
             a{
                 color:$links;
                 text-decoration:none;
                 letter-spacing:-0.01em;
+                &:hover {
+                    color: $white;
+                }
             }
         }
     }

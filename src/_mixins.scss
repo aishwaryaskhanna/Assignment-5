@@ -1,6 +1,5 @@
 @import "variables";
-//add default values to the mixins 
-//logog, navigation menu, content area  
+
 
 @mixin header($fontColor,$fontWeight,$fontSize,$lineHeight:0){
     color:$fontColor;
@@ -22,9 +21,30 @@
     background-position: $left 0;
 }
 
-@mixin break($windowWidth){
+@mixin nav($width, $height, $float, $textAlign){
+    width:$width;
+    height:$height;
+    float:$float;
+    text-align:$textAlign;
+}
+
+@mixin logo($margin,$width, $height, $float){
+    margin:$margin;
+    height: $height;
+    display: block;
+    float: $float;
+    width: $width;
+}
+
+@mixin contentArea($width, $margin){
+    width: $width;
+    margin:$margin;
+}
+
+@mixin adjustWidth($windowWidth){
     @media screen and (max-width: $windowWidth){
         @content;      
     }
 }
+
 

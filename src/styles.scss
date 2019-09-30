@@ -1,11 +1,9 @@
-@import "navigation","variables","media", "headerFooter", "normalize";
+@import "navigation","variables", "headerFooter", "normalize";
 
 
 body{
-    font{
-        font-family: $font-body, sans-serif;
-        size:1em;
-    }
+        font-family: $font-body;
+        font-size:1em;
         line-height:2em;
         background:url($backgroundImg) $white repeat-x;
         margin:0;
@@ -15,24 +13,82 @@ main{
     width:$full-width;
     margin:0 auto;
     padding:0 10px;
+    @include adjustWidth(959px) {width:768px;}
+    @include adjustWidth(767px)	{width:$content-width;}
+    @include adjustWidth(459px) {width:300px;}
+
 }
 
 figure{
-    width:400px;
-    height:$height;
     background:url($logoImg) no-repeat 0 50px;
-    float:left;
-    display:block;
-    margin:0;
+    @include logo(0,400px,$height,left);
+    @include adjustWidth(959px) {width:inherit;height:140px;float:none;background-position:center;}
+    @include adjustWidth(459px) {background-size:contain;height:100px;}
+
 }
 
-/* CONTENT */
-#headline                   {width:100%;height:130px;background:$red;text-align:center;margin:0 auto;}
-#headline h1                {color: $white;font-size:2.5em;font-weight:100;padding-top:50px;}
-#content                    {width:$full-width;margin:20px auto;}
-#content h3                 {color:$grey;font-size:2em;font-weight:400;}
-#content #products          {width:$content-width;float:left;}
-#content #products img      {float:left;margin-right:20px;}
-#content #products article  {margin-bottom:40px;}
-#content #products h4       {line-height:1em;}
-#content #testimonials      {width:$content-width;float:right;}
+select{
+@include adjustWidth(459px) {width:95%;}
+}
+
+#content{
+    @include contentArea($full-width, 20px auto);
+    @include adjustWidth(959px)	{width:inherit;}
+
+     #testimonials{
+        width:$content-width;
+        float:right;
+        @include adjustWidth(959px){width:46%;margin:0 2%;}
+        @include adjustWidth(767px) {width:96%;margin:0 2%;float:none;}
+    }
+    #products {
+        width:$content-width;
+        float:left;
+        @include adjustWidth(959px){width:46%;margin:0 2%;}
+        @include adjustWidth(767px) {width:96%;margin:0 2%;float:none;}
+
+        img{
+            float:left;
+            margin-right:20px;
+        }
+        article{
+            margin-bottom:40px;
+            img {
+                @include adjustWidth(459px)  {display:none;}
+            }
+        }
+        h4{
+            line-height:1em;
+        }
+    }
+    h3{
+        color:$grey;
+        font-size:2em;
+        font-weight:400;
+        @include adjustWidth(459px) {font-size:1.6em;}
+    }
+    
+}
+
+#headline {
+    width:100%;
+    height:130px;
+    background:$red;
+    text-align:center;
+    margin:0 auto;
+
+    h1{
+        color: $white;
+        font-size:2.5em;
+        font-weight:100;
+        padding-top:50px;
+        @include adjustWidth(767px) {font-size:2em;padding-top:50px;}
+        @include adjustWidth(459px) {font-size:1.5em;padding-top:30px;}
+
+    }
+}
+
+    
+
+
+
