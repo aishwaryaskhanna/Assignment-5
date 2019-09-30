@@ -1,0 +1,56 @@
+@import "variables", "mixins";
+
+header{
+    width:inherit;
+    clear:both;
+    text-align:center;
+    padding-top:40px;
+    h1{
+        @include header($links,100,4em);
+    }
+    h2{
+        @include header($white,30*$basePixels,2.5em);
+        margin-bottom:70px;
+    }
+    h3{
+        @include header($grey,400,2em); 
+        margin-bottom:50px;
+    }
+    img{
+        max-width:100%;
+        height:auto;
+    }
+}
+
+.greybar                    { @include footer (3*$basePixels, $lightGrey, $basePixels);clear:both;}
+footer                      { @include footer (4*$basePixels, $darkGrey, 50px);text-align:center;color:$white;}
+ 
+
+.social-media{
+    margin:0 auto;
+    width:165px;
+
+    div{
+        float:left;
+        margin-right:5px;
+       .one{
+           @include backImage($socialMediaImg, 0);
+        }
+        .two{
+            @include backImage($socialMediaImg, -38px);
+        }
+        .three{
+            @include backImage($socialMediaImg, -76px);
+        }
+        .four{
+            @include backImage($socialMediaImg, -114px);
+        }
+    }
+
+    a{
+        display:block;
+        width:36px;
+        height:36px;
+        text-indent:-9999px;
+    }
+}

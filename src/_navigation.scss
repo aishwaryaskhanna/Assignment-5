@@ -1,0 +1,22 @@
+@import "variables";
+
+nav{
+    width:540px;
+    height:$height;
+    float:left;
+    text-align:right;
+    ul{
+        list-style-type:none;
+        margin-top:95px;
+        li{
+            display:inline;
+            font-size:0.8em;
+            margin-right:10px;
+            a{
+                color:$links;
+                text-decoration:none;
+                letter-spacing:-0.01em;
+            }
+        }
+    }
+}

@@ -1,0 +1,30 @@
+@import "variables";
+//add default values to the mixins 
+//logog, navigation menu, content area  
+
+@mixin header($fontColor,$fontWeight,$fontSize,$lineHeight:0){
+    color:$fontColor;
+    font-weight:$fontWeight;
+    font-size:$fontSize;
+    line-height:$lineHeight;
+}
+
+@mixin footer($height, $background, $padding, $width:100%){
+    height:$height;
+    background:$background;
+    padding-top:$padding;
+    width:$width;
+}
+
+@mixin backImage($img, $left){
+    background:url($img);
+    background-repeat: no-repeat;
+    background-position: $left 0;
+}
+
+@mixin break($windowWidth){
+    @media screen and (max-width: $windowWidth){
+        @content;      
+    }
+}
+
